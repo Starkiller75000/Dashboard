@@ -1,0 +1,309 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.config-form, .choose-service, .twitch-config, .movie-config, .riot-config, .nsfw-config, #age-form {
+    display: none;
+    position: fixed;
+    z-index: 11;
+    top: 30%;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    -webkit-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    padding: 10px;
+}
+
+.config-form, .twitch-config, .movie-config, .riot-config, .nsfw-config, #age-form {
+    right: 35%;
+}
+
+.choose-service {
+    right: 30%;
+}
+
+.config-form h3, .config-form h4 {
+    margin: 10px;
+}
+
+.config-form form, .config-form .cancel-btn {
+    margin-bottom: 10px;
+}
+
+.choose-service .btn, .choose-service h4 {
+    margin: 10px;
+}
+
+#message {
+    display: block;
+}
+
+#apiDiv select, #apiDiv button {
+    font-size: 25px;
+}
+
+#apiDiv #message table {
+    width: 100%;
+    border: double 1px #00ffff;
+    background: #ff6a00;
+}
+
+#apiDiv #message table th {
+    text-align: left;
+    background: #4CAF50;
+}
+
+#overlay {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.8);
+}
+
+#bandeau {
+	width:600px;
+	height:50px;
+	background-color:#00CCFF;
+	}
+#contenu {
+	width:600px;
+	height:400px;
+	background-color:#FFCC00;
+	}
+#piedpage {
+	width:600px;
+	height:50px;
+	background-color:#33FF99;
+	}
+
+#container {
+    width: 300px;
+    background-color: #ffcc33;
+    margin: auto;
+}
+#first {
+    width: 100px;
+    float: left;
+    height: 300px;
+        background-color: blue;
+}
+#second {
+    width: 200px;
+    float: left;
+    height: 300px;
+    background-color: green;
+}
+
+body {
+    padding-top: 80px;
+    padding-bottom: 180px;
+}
+
+.weather.panel .panel-heading {
+    font-weight: lighter !important;
+    font-size: 1.2em;
+    cursor: move;
+}
+
+.weather.panel .panel-footer {
+    font-weight: lighter !important;
+}
+
+.google-translator input {
+    margin: 10px auto;
+}
+
+.google-translator {
+    display: none;
+    background-color: #d5d5d5;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.weather.panel {
+    margin-top: 10px;
+}
+
+.ng-isolate-scope {
+    position: absolute;
+}
+
+#twitch-logo {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#twitch-div {
+    border-radius: 10px;
+    background-color: rgb(100, 65, 164);
+    padding: 10px;
+    width: 30%;
+}
+
+#twitch-div p {
+    color: black;
+}
+
+#movie {
+    background-color: #02d474;
+    border-radius: 10px;
+    width: 600px;
+    text-align: center;
+}
+
+#movie-div {
+    background-color: #081c24;
+    color: #ffffff;
+}
+#summoner-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.div-result {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+#LOL {
+    text-align: center;
+    width: 50%;
+    background-color: #11384a;
+    color: wheat;
+    padding: 10px;
+}
+
+#rank-icon {
+    width: 100px;
+    height: 100px;
+}
+
+#nsfw-div {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+#nsfw-rep {
+    background-color: #af1a21;
+    text-align: center;
+    width: 60%;
+    border-radius: 10%;
+    padding: 20px;
+    color: white;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.context-menu {
+    display: none;
+}
+
+.context-menu, .context-menu1, .context-menu2, .context-menu3, .context-menu4, .context-menu5 {
+    width: 10%;
+    position: absolute;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.context-menu1 {
+    display: none;
+}
+
+.context-menu2 {
+    display: none;
+}
+
+.context-menu3 {
+    display: none;
+}
+
+.context-menu4 {
+    display: none;
+}
+
+.context-menu5 {
+    display: none;
+}
+
+.task, .task1, .task2, .task3, .task4, .task5 {
+    margin-left: -20px;
+}
+
+.weather-service {
+    background: url("../images/services/weather-icon.png") no-repeat;
+}
+
+.google-service {
+    background: url("../images/services/googletrad-icon.png") no-repeat;
+}
+
+.twitch-service {
+    background: url("../images/services/twitch-icon.png") no-repeat;
+}
+
+.movie-service {
+    background: url("../images/services/movie-icon.png") no-repeat;
+}
+
+.riot-service {
+    background: url("../images/services/riot-icon.png") no-repeat;
+}
+
+.nsfw-service {
+    background: url("../images/services/redtube-icon.png") no-repeat;
+}
+
+.weather-service, .google-service, .twitch-service, .movie-service, .riot-service, .nsfw-service {
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}

@@ -1,0 +1,14 @@
+C:\Users\Starkiller75\source\repos\DEV_dashboard_2018\EpiDashboard\bin\Debug\EpiDashboard.Views.dll
+C:\Users\Starkiller75\source\repos\DEV_dashboard_2018\EpiDashboard\bin\Debug\EpiDashboard.Views.pdb
+C:\Users\Starkiller75\source\repos\DEV_dashboard_2018\EpiDashboard\bin\Debug\EpiDashboard.dll
+C:\Users\Starkiller75\source\repos\DEV_dashboard_2018\EpiDashboard\bin\Debug\EpiDashboard.pdb
+C:\Users\Starkiller75\source\repos\DEV_dashboard_2018\EpiDashboard\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+C:\Users\Starkiller75\source\repos\DEV_dashboard_2018\EpiDashboard\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\Starkiller75\source\repos\DEV_dashboard_2018\EpiDashboard\obj\Debug\docker-compose.dcproj.CopyComplete
+C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard\bin\Debug\EpiDashboard.Views.dll
+C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard\bin\Debug\EpiDashboard.Views.pdb
+C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard\bin\Debug\EpiDashboard.dll
+C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard\bin\Debug\EpiDashboard.pdb
+C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard\obj\Debug\docker-compose.dcproj.CopyComplete

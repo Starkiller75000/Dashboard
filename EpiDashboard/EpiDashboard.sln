@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpiDashboard", "EpiDashboard\EpiDashboard.csproj", "{6F54FEBD-D1F4-422E-A262-E92F308B830C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{92158B89-3783-422B-BD43-B41DB6412215}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F54FEBD-D1F4-422E-A262-E92F308B830C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F54FEBD-D1F4-422E-A262-E92F308B830C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F54FEBD-D1F4-422E-A262-E92F308B830C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F54FEBD-D1F4-422E-A262-E92F308B830C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92158B89-3783-422B-BD43-B41DB6412215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92158B89-3783-422B-BD43-B41DB6412215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92158B89-3783-422B-BD43-B41DB6412215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92158B89-3783-422B-BD43-B41DB6412215}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B734BD90-6576-44E9-9702-AC1B8D3D74B3}
+	EndGlobalSection
+EndGlobal

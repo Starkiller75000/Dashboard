@@ -1,0 +1,373 @@
+﻿@model EpiDashboard.Models.DashboardViewModel
+@using Microsoft.AspNetCore.Html
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+<h2>Dashboard @UserManager.GetUserName(User)</h2>
+<button id="add-service" class="btn btn-default">+ New Service</button>
+<div id="apiDiv">
+    <div class="choose-service">
+        <h4>Chosse a service</h4>
+        <button class="btn btn-default weather-service"></button>
+        <button class="btn btn-default google-service"></button><br />
+        <button class="btn btn-default twitch-service"></button>
+        <button class="btn btn-default movie-service"></button>
+        <button class="btn btn-default riot-service"></button>
+        <button class="btn btn-default nsfw-service"></button>
+    </div>
+    <div class="config-form">
+        <h3>Configure your widget</h3>
+        <h4>Enter the City Name for Weather Report</h4>
+        @using (Html.BeginForm())
+        {
+            @Html.TextBoxFor(m => m.cities)<br><br>
+            <button class="btn btn-default" name="submit" formaction="/Dashboard/Index">Save</button>
+        }
+        <button class="btn btn-default cancel-btn">Cancel</button>
+    </div>
+    <div id="message">@(new HtmlString(Model.apiResponse))</div>
+    <div>@ViewBag.ErrorMessage</div>
+</div>
+
+<div class="google-translator" id="google-translator" draggable="true">
+    <div id="google-translatorheader">
+        <h3>Google translator</h3>
+    </div>
+    @using (Html.BeginForm("Google", "Dashboard", FormMethod.Post))
+    {
+        <p>Source Language</p> @Html.TextBoxFor(m => m.source)<br />
+        <p>Target language</p> @Html.TextBoxFor(m => m.target)<br />
+        <p>Your text</p> @Html.TextBoxFor(m => m.message)<br />
+        <button class="btn btn-default" name="submit" formaction="/Dashboard/Google">Translate</button>
+    }
+</div>
+<div id="translated">@(new HtmlString(Model.translated))</div>
+<div>@ViewBag.Error</div>
+
+<div class="twitch-config">
+    <h3>Configure your widget</h3>
+    <h4>Search for a stream channel</h4>
+    @using (Html.BeginForm("Twitch", "Dashboard", FormMethod.Get))
+    {
+        @Html.TextBoxFor(m => m.channel)<br><br>
+        <button class="btn btn-default save-twitch" name="submit" formaction="/Dashboard/Twitch">Save</button>
+    }
+    <button class="btn btn-default cancel-btn-twitch">Cancel</button>
+</div>
+<div id="twitch">@(new HtmlString(Model.twitchResponse))</div>
+<div>@ViewBag.LiveOff</div>
+
+<div class="movie-config">
+    @using (Html.BeginForm("Movie", "Dashboard", FormMethod.Get))
+    {
+        <h3>Configure your widget</h3>
+        <h4>Search for a movie</h4>
+        <p>Number of results: </p>@Html.TextBoxFor(n => n.MovieResult)<br><br>
+        <p>Name of movie: </p>@Html.TextBoxFor(n => n.movieName)<br><br>
+        <button class="btn btn-default" name="submit" formaction="/Dashboard/Movie">Save</button>
+    }
+    <button class="btn btn-default cancel-btn-movie">Cancel</button>
+</div>
+<div id="movie">@(new HtmlString(Model.movieResponce))</div>
+
+<div class="riot-config">
+    <h3>Configure your widget</h3>
+    <h4>Search for a summoner</h4>
+    @using (Html.BeginForm("LOL", "Dashboard", FormMethod.Get))
+    {
+        <p>Region: </p>@Html.TextBoxFor(n => n.Region)<br><br>
+        <p>Summoner's name: </p>@Html.TextBoxFor(n => n.SummonerName)<br><br>
+        <button class="btn btn-default" name="submit" formaction="/Dashboard/LOL">Save</button>
+    }
+    <button class="btn btn-default cancel-btn-riot">Cancel</button>
+</div>
+<div id="LOL-res">@(new HtmlString(Model.LolResponse))</div>
+
+<div class="nsfw-config">
+    <h3>Configure your widget</h3>
+    <h4>NSFW widget</h4>
+    @using (Html.BeginForm("NSFW", "Dashboard", FormMethod.Get))
+    {
+        <p>Number of results: </p>@Html.TextBoxFor(n => n.NumberResult)<br><br>
+        <p>Tags: </p>@Html.TextBoxFor(n => n.tags)<br><br>
+        <p>Search: </p>@Html.TextBoxFor(n => n.search)<br><br>
+        <button class="btn btn-default" name="submit" formaction="/Dashboard/NSFW">Save</button>
+    }
+    <button class="btn btn-default cancel-btn-nsfw">Cancel</button>
+</div>
+<div id="age-form">
+    <p>Enter Your birthday (dd-mm-yyyy): </p><input id="age-input" type="text" /><br /><br />
+    <button class="btn btn-default" id="validate-btn">Valider</button>
+    <button class="btn btn-danger" id="cancel-btn-age">Annuler</button>
+</div>
+<div id="NSFW-res">@(new HtmlString(Model.NSFWRep))</div>
+<div class="context-menu">
+    <ul class="task">
+        <li id="edit">
+            <button class="btn btn-default edit1">Edit</button>
+        </li>
+        <li id="delete">
+            <button class="btn btn-danger delete1">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<div class="context-menu1">
+    <ul class="task1">
+        <li id="delete">
+            <button class="btn btn-danger delete2">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<div class="context-menu2">
+    <ul class="task2">
+        <li id="edit">
+            <button class="btn btn-default edit3">Edit</button>
+        </li>
+        <li id="delete">
+            <button class="btn btn-danger delete3">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<div class="context-menu3">
+    <ul class="task3">
+        <li id="edit">
+            <button class="btn btn-default edit4">Edit</button>
+        </li>
+        <li id="delete">
+            <button class="btn btn-danger delete4">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<div class="context-menu4">
+    <ul class="task4">
+        <li id="edit">
+            <button class="btn btn-default edit5">Edit</button>
+        </li>
+        <li id="delete">
+            <button class="btn btn-danger delete5">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<div class="context-menu5">
+    <ul class="task5">
+        <li id="edit">
+            <button class="btn btn-default edit6">Edit</button>
+        </li>
+        <li id="delete">
+            <button class="btn btn-danger delete6">Delete</button>
+        </li>
+    </ul>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    //Weather
+    $("#weather").contextmenu(function () {
+        var y = $("#weather").offset().top;
+        var x = $("#weather").offset().left;
+
+        $(".context-menu").css(
+            {
+                "top": y,
+                "left": x + 300
+            }
+        );
+        $(".context-menu").fadeIn();
+    });
+
+    //Google Trad
+    $("#google-translator").contextmenu(function () {
+        var y = $("#google-translator").offset().top;
+        var x = $("#google-translator").offset().left;
+
+        $(".context-menu1").css(
+            {
+                "top": y,
+                "left": x + 200
+            }
+        );
+        $(".context-menu1").fadeIn();
+    });
+
+    //Twitch
+    $("#twitch-div").contextmenu(function () {
+        var y = $("#twitch-div").offset().top;
+        var x = $("#twitch-div").offset().left;
+
+        $(".context-menu2").css(
+            {
+                "top": y,
+                "left": x + 350
+            }
+        );
+        $(".context-menu2").fadeIn();
+    });
+
+    //Movie
+    $("#movie-div").contextmenu(function () {
+        var y = $("#movie-div").offset().top;
+        var x = $("#movie-div").offset().left;
+
+        $(".context-menu3").css(
+            {
+                "top": y,
+                "left": x + 600
+            }
+        );
+        $(".context-menu3").fadeIn();
+    });
+
+    //Riot
+    $("#LOL").contextmenu(function () {
+        var y = $("#LOL").offset().top;
+        var x = $("#LOL").offset().left;
+
+        $(".context-menu4").css(
+            {
+                "top": y,
+                "left": x + 600
+            }
+        );
+        $(".context-menu4").fadeIn();
+    });
+
+    //NSFW
+    $("#nsfw-rep").contextmenu(function () {
+        var y = $("#nsfw-rep").offset().top;
+        var x = $("#nsfw-rep").offset().left;
+
+        $(".context-menu5").css(
+            {
+                "top": y,
+                "left": x + 700 
+            }
+        );
+        $(".context-menu5").fadeIn();
+    });
+
+    //Weather click
+    $("#weather").click(function () {
+        $(".context-menu").fadeOut();
+    });
+
+    //Google trad click
+    $("#google-translator").click(function () {
+        $(".context-menu1").fadeOut();
+    });
+
+    //Twitch click
+    $("#twitch-div").click(function () {
+        $(".context-menu2").fadeOut();
+    });
+
+    //Movie click
+    $("#movie-div").click(function () {
+        $(".context-menu3").fadeOut();
+    });
+
+    //Riot click
+    $("#LOL").click(function () {
+        $(".context-menu4").fadeOut();
+    });
+
+    //NSFW click
+    $("#nsfw-rep").click(function () {
+        $(".context-menu5").fadeOut();
+    });
+
+    //Weather edit
+    $('.edit1').click(function () {
+        $('body').after('<div id="overlay"></div>').hide().fadeIn();
+        $('.config-form').fadeIn();
+        $('.context-menu').fadeOut();
+    });
+
+    //Twitch edit
+    $('.edit3').click(function () {
+        $('body').after('<div id="overlay"></div>').hide().fadeIn();
+        $('.twitch-config').fadeIn();
+        $('.context-menu2').fadeOut();
+    });
+
+    //Movie edit
+    $('.edit4').click(function () {
+        $('body').after('<div id="overlay"></div>').hide().fadeIn();
+        $('.movie-config').fadeIn();
+        $('.context-menu3').fadeOut();
+    });
+
+    //Riot edit
+    $('.edit5').click(function () {
+        $('body').after('<div id="overlay"></div>').hide().fadeIn();
+        $('.riot-config').fadeIn();
+        $('.context-menu4').fadeOut();
+    });
+
+    //NSFW edit
+    $('.edit6').click(function () {
+        $('body').after('<div id="overlay"></div>').hide().fadeIn();
+        $('.nsfw-config').fadeIn();
+        $('.context-menu5').fadeOut();
+    });
+
+    //Weather delete
+    $('.delete1').click(function () {
+        $('#weather').fadeOut();
+        $('.context-menu').fadeOut();
+    });
+
+    //Google trad delete
+    $('.delete2').click(function () {
+        $('#google-translator').fadeOut();
+        $('.context-menu1').fadeOut();
+    });
+
+    //Twitch delete
+    $('.delete3').click(function () {
+        $('#twitch-div').fadeOut();
+        $('.context-menu2').fadeOut();
+    });
+
+    //Movie delete
+    $('.delete4').click(function () {
+        $('#movie-div').fadeOut();
+        $('.context-menu3').fadeOut();
+    });
+
+    //Riot delete
+    $('.delete5').click(function () {
+        $('#LOL').fadeOut();
+        $('.context-menu4').fadeOut();
+    });
+
+    //NSFW delete
+    $('.delete6').click(function () {
+        $('#nsfw-rep').fadeOut();
+        $('.context-menu5').fadeOut();
+    });
+
+    //CANCEL BTN
+    $('.cancel-btn').click(function () {
+        $('#overlay').fadeOut();
+        $('.config-form').fadeOut();
+    });
+    $('.cancel-btn-twitch').click(function () {
+        $('#overlay').fadeOut();
+        $('.twitch-config').fadeOut();
+    });
+    $('.cancel-btn-movie').click(function () {
+        $('#overlay').fadeOut();
+        $('.movie-config').fadeOut();
+    });
+    $('.cancel-btn-riot').click(function () {
+        $('#overlay').fadeOut();
+        $('.riot-config').fadeOut();
+    });
+    $('.cancel-btn-nsfw').click(function () {
+        $('#overlay').fadeOut();
+        $('.nsfw-config').fadeOut();
+    });
+</script>

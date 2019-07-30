@@ -1,0 +1,34 @@
+services:
+  epidashboard:
+    build:
+      context: C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard
+      dockerfile: EpiDashboard/Dockerfile
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44312'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: epidashboard:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.1/EpiDashboard.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 56501
+      target: 80
+    - published: 44312
+      target: 443
+    volumes:
+    - C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard\EpiDashboard:/app:rw
+    - C:\Users\darkm\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Users\darkm\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\darkm\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\darkm\.nuget\packages:/root/.nuget/packages:ro
+version: '3.4'

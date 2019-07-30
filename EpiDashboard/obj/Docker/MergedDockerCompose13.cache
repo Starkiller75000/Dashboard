@@ -1,0 +1,19 @@
+services:
+  epidashboard:
+    build:
+      context: C:\Users\darkm\Epitech\DEV_dashboard_2018\EpiDashboard
+      dockerfile: EpiDashboard/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44312'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: epidashboard
+    ports:
+    - published: 56501
+      target: 80
+    - published: 44312
+      target: 443
+    volumes:
+    - C:\Users\darkm\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\darkm\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'
